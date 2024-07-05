@@ -1,0 +1,46 @@
+/* src/components/InfoSection.css */
+.info-section { 
+  display: flex; /* Define que os filhos do container serão dispostos em linha */
+  justify-content: space-around; /* Distribui os elementos filhos com espaçamento igual entre eles */
+  padding: 20px; /* Adiciona um preenchimento interno de 20 pixels em todos os lados */
+  background-color: #f9f9f9; /* Define a cor de fundo como um cinza claro */
+  margin-top: 60px;
+}
+
+.info-box { 
+  display: flex; /* Define que os filhos do container serão dispostos em linha */
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  max-width: 30%; /* Define a largura máxima de cada box como 30% do container pai */
+  padding: 10px; /* Adiciona um preenchimento interno de 10 pixels em todos os lados */
+  background-color: white; /* Define a cor de fundo como branca */
+  border-radius: 5px; /* Adiciona bordas arredondadas com raio de 5 pixels */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve abaixo do box */
+}
+
+.info-box img { 
+  width: 70px; /* Define a largura da imagem como 50 pixels */
+  height: 70px; /* Define a altura da imagem como 50 pixels */
+  margin-right: 10px; /* Adiciona uma margem direita de 10 pixels */
+}
+
+.info-box h3 { 
+  margin: 0; /* Remove a margem padrão */
+  font-size: 20px; /* Define o tamanho da fonte como 18 pixels */
+  color: #333; /* Define a cor do texto como um cinza escuro */
+}
+
+.info-box p { 
+  margin: 8px 0; /* Define uma margem de 5 pixels em cima e embaixo, e 0 nas laterais */
+  font-size: 18px; /* Define o tamanho da fonte como 16 pixels */
+  color: #666; /* Define a cor do texto como um cinza médio */
+}
+
+.info-box a { 
+  font-size: 14px; /* Define o tamanho da fonte como 14 pixels */
+  color: #007bff; /* Define a cor do texto como azul */
+  text-decoration: none; /* Remove a decoração padrão do link (sublinhado) */
+}
+
+.info-box a:hover { 
+  text-decoration: underline; /* Adiciona sublinhado ao link quando o mouse estiver sobre ele */
+}

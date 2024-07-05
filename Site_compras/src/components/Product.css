@@ -1,0 +1,96 @@
+/* src/components/Product.css */
+
+/* Estilo do card do produto */
+.product {
+  border: 1px solid #cfb6b6; /* Cor da borda do card */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno do card */
+  margin: 10px; /* Espaçamento externo do card */
+  width: 200px; /* Largura do card */
+  text-align: center; /* Alinhamento centralizado do texto */
+  position: relative; /* Necessário para o botão de expandir */
+  display: flex; /* Flexbox layout para o card */
+  flex-direction: column; /* Disposição dos elementos em coluna */
+  justify-content: space-between; /* Distribuição uniforme dos elementos */
+  transition: transform 0.3s ease; /* Transição suave para transformações */
+  background-color: #f9f9f9;
+  min-width: 200px; /* Largura mínima para cada produto */
+  flex-shrink: 0; /* Evita que os produtos encolham */  
+}
+
+/* Estilo da imagem do produto */
+.product img {
+  width: 100%; /* Largura da imagem ajustada ao card */
+  max-height: 200px; /* Altura máxima da imagem */
+  border-radius: auto; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  transition: transform 0.5s ease; /* Transição suave para transformações */
+}
+
+/* Aumenta o tamanho da imagem ao passar o mouse */
+.product img:hover {
+  transform: scale(1.5); /* Escala a imagem em 50% */
+}
+
+/* Estilo do título do produto */
+.product h2 {
+  font-size: 18px; /* Tamanho da fonte */
+  margin: 10px 0; /* Margem vertical */
+}
+
+/* Estilo do parágrafo (preço) do produto */
+.product p {
+  margin: 5px 0; /* Margem vertical */
+}
+
+/* Estilo da descrição do produto */
+.product-description {
+  max-height: 50px; /* Altura máxima inicial da descrição */
+  overflow: hidden; /* Oculta o overflow da descrição */
+  transition: max-height 0.3s ease; /* Transição suave para a altura máxima */
+}
+
+/* Estilo da descrição expandida */
+.product-description.expanded {
+  max-height: none; /* Altura máxima removida */
+}
+
+/* Estilo do botão de expandir */
+.expand-button {
+  position: absolute; /* Posição absoluta dentro do card */
+  bottom: 0; /* Posicionado na parte inferior */
+  right: 0; /* Posicionado à direita */
+  background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+  padding: 5px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor de ponteiro */
+  display: block; /* Exibe o botão */
+}
+
+/* Estilo do botão "Adicionar ao Carrinho" */
+.add-to-cart-button {
+  background-color: #4CAF50; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove a borda do botão */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 10px 20px; /* Espaçamento interno do botão */
+  cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+  margin-top: 10px; /* Espaçamento acima do botão */
+  align-self: center; /* Centraliza o botão */
+}
+
+/* Cor de fundo do botão ao passar o mouse */
+.add-to-cart-button:hover {
+  background-color: #ccd2cc; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo das setas de navegação */
+.nav-arrow {
+  font-size: 1.5em; /* Tamanho inicial das setas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: transform 0.3s ease; /* Transição suave para transformações */
+}
+
+/* Aumenta o tamanho das setas ao passar o mouse */
+.nav-arrow:hover {
+  transform: scale(1.2); /* Escala as setas em 20% */
+}

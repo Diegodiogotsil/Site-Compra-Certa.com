@@ -1,0 +1,37 @@
+.about-us {
+    padding: 20px; /* Diminuir o padding */
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    margin-top: 60px;
+  }
+  
+  .about-us h2 {
+    font-size: 32px; /* Aumentar o tamanho da fonte */
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .about-us h3 {
+    font-size: 32px; /* Aumentar o tamanho da fonte */
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .about-us p {
+    font-size: 20px; /* Aumentar o tamanho da fonte */
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .about-us ul li {
+    font-size: 20px; /* Aumentar o tamanho da fonte */
+    color: #666;
+    margin-bottom: 10px;
+  }
+  

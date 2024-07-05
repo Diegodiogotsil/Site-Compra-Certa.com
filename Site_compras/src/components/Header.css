@@ -1,0 +1,46 @@
+/* src/components/Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+}
+
+.logo {
+  display: flex;  /* Adiciona flexbox para alinhar a imagem e o texto */
+  align-items: center;  /* Centraliza verticalmente */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-image {
+  width: 40px;  /* Define a largura da imagem */
+  height: auto;  /* Mantém a proporção da imagem */
+  margin-right: 10px;  /* Espaçamento entre a imagem e o texto */
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.search-bar button {
+  padding: 10px;
+  background-color: white;
+  color: #41bcf1;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-icon {
+  cursor: pointer;
+  color: #ebf0f3;
+}

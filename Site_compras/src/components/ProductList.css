@@ -1,0 +1,52 @@
+.product-list-container {
+  position: relative;
+  overflow: hidden; /* Esconde a barra de rolagem padrão */
+  margin-top: 80px;
+}
+
+.product-list {
+  display: flex;
+  overflow-x: auto; /* Adiciona rolagem horizontal */
+  padding: 20px; /* Espaço interno para a lista de produtos */
+  gap: 16px; /* Espaço entre os produtos */
+  scroll-behavior: smooth; /* Suaviza a rolagem */
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  min-width: 200px; /* Largura mínima para cada produto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex-shrink: 0; /* Evita que os produtos encolham */
+}
+
+
+
+/* Estilo para os botões de rolagem */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.3s ease; /* Adiciona transição suave */
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.scroll-button:hover {
+  background-color: #45a049;
+  transform: scale(1.4); /* Aumenta o tamanho do botão ao passar o mouse */
+}
