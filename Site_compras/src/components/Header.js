@@ -28,6 +28,7 @@ const Header = () => {
         <div className="cart-icon" onClick={handleCartClick}>
           <FaShoppingCart size={24} />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          <div></div>
         </div>
       </header>
       <ImageCarousel />
