@@ -23,9 +23,9 @@ const AboutUs = () => {
       <p>
         Na Compra Certa.com, sua satisfação é nossa prioridade. Estamos comprometidos em fornecer um serviço excelente e produtos que você vai adorar. Se você tiver qualquer dúvida ou precisar de assistência, nossa equipe de atendimento ao cliente está sempre pronta para ajudar.
       </p>
-      <p>
+      <h4>
         Obrigado por escolher a Compra Certa.com. Boas compras!
-      </p>
+      </h4>
     </div>
   );
 }

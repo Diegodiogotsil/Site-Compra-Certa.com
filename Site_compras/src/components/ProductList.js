@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import Product from './Product';
 import './ProductList.css';
 
+
 const ProductList = () => {
   const listRef = useRef(null);
 
@@ -62,14 +63,16 @@ const ProductList = () => {
     {
       id: 9,
       name: ' Coberdrom Sherpa Edredom Dupla Face vermelho',
-      price: 'De R$ 422,00 por R$ 211,00',
+      oldprice:'De R$ 422,00',
+      price: 'Por R$ 211,00',
       image: 'imagens/edredon.jpg',
       description: 'Ideal para deixar o ambiente mais elegante e confortavél, Manta Microfibra 100% Poliéster, Tecido Sherpa 100% Poliéster Excelente custo benefício'
     },
     {
       id: 10,
       name: ' Cobertor Manta Felpuda Liso Cama Casal King marron',
-      price: 'De R$ 380,00 por R$190,00',
+      oldprice:'De R$ 380,00 ',
+      price: 'Por R$190,00',
       image: 'imagens/cobertor.jpg',
       description: 'Manta Flannel Alta Qualidade Toque Macio ótimo para o inverno e frio, Ótimo acabamentoTamanho Ideal, Caimento perfeito na cama.'
     },

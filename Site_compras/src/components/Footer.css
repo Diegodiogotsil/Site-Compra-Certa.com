@@ -3,8 +3,12 @@
     text-align: center;
     padding: 20px;
     background-color: #f1f1f1;
-    margin-top: 40px;
-    width: 100%;
+    margin-top: 40px;    
     bottom: 0;
   }
+
+.Tema-escuro .footer {
+    background-color: #1a474f;
+    color: #fff;
+}
   

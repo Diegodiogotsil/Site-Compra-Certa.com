@@ -44,3 +44,11 @@
   cursor: pointer;
   color: #ebf0f3;
 }
+.Tema-escuro .header {
+  background-color: #1a474f;
+  color: #fff;
+}
+.Tema-escuro .search-bar button {
+  background-color: #d33157;
+  color: #fff;
+}

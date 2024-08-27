@@ -12,17 +12,6 @@
   scroll-behavior: smooth; /* Suaviza a rolagem */
 }
 
-.product {
-  border: 1px solid #ddd;
-  padding: 16px;
-  border-radius: 8px;
-  min-width: 200px; /* Largura mínima para cada produto */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  flex-shrink: 0; /* Evita que os produtos encolham */
-}
-
-
 
 /* Estilo para os botões de rolagem */
 .scroll-button {
@@ -49,4 +38,20 @@
 .scroll-button:hover {
   background-color: #45a049;
   transform: scale(1.4); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+/* Estilo das setas de navegação */
+.nav-arrow {
+  font-size: 1.5em; /* Tamanho inicial das setas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: transform 0.3s ease; /* Transição suave para transformações */
+}
+
+/* Aumenta o tamanho das setas ao passar o mouse */
+.nav-arrow:hover {
+  transform: scale(1.2); /* Escala as setas em 20% */
+}
+
+.Tema-escuro .header {
+  background-color: #1a474f;
+  color: #fff;
 }

@@ -16,6 +16,7 @@
   background-color: #f9f9f9;
   min-width: 200px; /* Largura mínima para cada produto */
   flex-shrink: 0; /* Evita que os produtos encolham */  
+  
 }
 
 /* Estilo da imagem do produto */
@@ -41,6 +42,7 @@
 /* Estilo do parágrafo (preço) do produto */
 .product p {
   margin: 5px 0; /* Margem vertical */
+  
 }
 
 /* Estilo da descrição do produto */
@@ -82,15 +84,12 @@
 .add-to-cart-button:hover {
   background-color: #ccd2cc; /* Cor de fundo ao passar o mouse */
 }
-
-/* Estilo das setas de navegação */
-.nav-arrow {
-  font-size: 1.5em; /* Tamanho inicial das setas */
-  cursor: pointer; /* Cursor de ponteiro */
-  transition: transform 0.3s ease; /* Transição suave para transformações */
+.oldprice{
+  text-decoration: line-through;
+  color: red;
+   
 }
-
-/* Aumenta o tamanho das setas ao passar o mouse */
-.nav-arrow:hover {
-  transform: scale(1.2); /* Escala as setas em 20% */
+.Tema-escuro .product {
+  background-color: #1a474f;
+  color: #fff;
 }

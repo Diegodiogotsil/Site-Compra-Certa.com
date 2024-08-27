@@ -2,8 +2,8 @@
 .info-section { 
   display: flex; /* Define que os filhos do container serão dispostos em linha */
   justify-content: space-around; /* Distribui os elementos filhos com espaçamento igual entre eles */
-  padding: 20px; /* Adiciona um preenchimento interno de 20 pixels em todos os lados */
-  background-color: #f9f9f9; /* Define a cor de fundo como um cinza claro */
+  padding: 20px; 
+  background-color: #f9f9f9; 
   margin-top: 60px;
 }
 
@@ -43,4 +43,25 @@
 
 .info-box a:hover { 
   text-decoration: underline; /* Adiciona sublinhado ao link quando o mouse estiver sobre ele */
+}
+.Tema-escuro .info-section {
+  background-color: #333;
+  color: #fff;
+}
+.Tema-escuro .info-box {
+  background-color: #1a474f;
+  
+}
+.Tema-escuro .titulo {
+  color: antiquewhite;
+  
+}
+.Tema-escuro .info-box p{
+  color: #f9f9f9;
+  
+}
+.Tema-escuro .info-box a{
+  color: #f9f9f9;
+  background-color: #1a474f;
+  
 }
