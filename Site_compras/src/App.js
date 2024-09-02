@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
-import CarrinhoCompras from './components/CarrinhoCompras';
+import CarrinhoCompras from './components/pages/CarrinhoCompras';
 import { TemaContext } from './TemaContext';
 import './App.css';
 

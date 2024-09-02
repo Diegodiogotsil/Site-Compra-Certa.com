@@ -13,11 +13,11 @@ function Home() {
 
   return (
     <div className="Home">
-      <Header />
-      <ProductList />
+      <Header/>
+      <ProductList/>
       <AboutUs/>
       <InfoSection/>
-      <Footer />     
+      <Footer/>     
     </div>
   );
 }
