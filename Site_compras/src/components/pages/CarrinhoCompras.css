@@ -1,99 +1,149 @@
-.imagem-produto-carrinho{
+.imagem-produto-carrinho {
     flex: 1;
     height: 10rem;
     width: 60%;
-    align-items: center;
-    
 }
+
 .container {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     align-items: center;
-   
-   
+    padding-left: 10rem;
+    padding-right: 10rem;
 }
-.div-carrinho{   
+
+.div-carrinho {
     flex-wrap: wrap;
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     flex: 1;
-    border-top: 2px solid #000; /* Adicionando uma borda visível */
+    border-top: 2px solid #000;
+    /* Adicionando uma borda visível */
     margin-bottom: 3rem;
     gap: 1rem;
-    
-    
 }
 
-.content {
-    flex: 1;
-    
-}
-.item-nome{
+
+.item-nome {
     text-align: center;
-    width: 40%;
-    
-    
 }
-.item-preco{    
-    color: rgb(216, 90, 55);    
+
+.item-div-nome {
+    width: 20%;
+}
+
+.item-preco {
+    color: rgb(216, 90, 55);
     margin-bottom: 2rem;
-    
-    
-   
 }
-.botao-remover{
+
+.botao-remover {
     border-radius: 3rem;
     border-color: rgb(156, 165, 165);
-    background-color:rgb(227, 91, 76);
+    background-color: rgb(227, 91, 76);
     font-style: italic;
-    
 }
-.imagem-produto-carrinho2{
+
+.imagem-produto-carrinho2 {
     align-items: center;
-    display: flex; 
+    display: flex;
     flex-direction: row;
     /**border:#000 solid;**/
-    width: 40%;
-
-    
+    width: 18%;
 }
+
 .div-titulo {
     display: flex;
     flex-direction: row;
 }
+
 .div-titulo-h1 {
-    width: 52%;
+    width: 19%;
 }
+
 .div-titulo-h2 {
     width: 20%;
 }
-.div-item-preço{
+
+.div-titulo-3 {
+
+    padding-left: 2%;
     width: 20%;
 }
+
+.div-item-preço {
+    width: 20%;
+    padding-left: 1rem;
+}
+
 .titulo-carrinho {
     font-size: 3rem;
-    
     text-align: center;
+    margin-bottom: 5%;
 }
+
 .div-quantidade {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 1rem;
-    width: 10%;
-    
+    width: 15%;
 }
-.quantidade{  
+
+.quantidade {
     display: flex;
-    width: 1rem;
-    height: 1rem;
+    margin-right: 5%;
     margin-left: 5%;
-    
+    font-size: 1.5rem;
+}
+
+.div-botao-mn {
+    display: flex;
+}
+
+.div-Quantidade {
+    width: 17.5%;
+}
+
+.botao-decrementar {
+    width: 2rem;
+    height: 2rem;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 0.3s ease;
+}
+
+.botao-decrementar:hover {
+    background-image: url('/public/imagens/lixeira.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem 2rem;
+    color: transparent;
+    /* Ocultar o texto '-' quando o ícone aparecer */
+}
+
+.botao-incrementar {
+    width: 2rem;
+    height: 2rem;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 0.3s ease;
+}
+.imagem-carrinho-vazio{
+    display: flex;
+    justify-content: center;
     
 }
-.div-botao-mn{
-    display: flex;
-    
+.imagem-carrinho-vazio1{
+    width: 50%;
+    height: 50%;
 }

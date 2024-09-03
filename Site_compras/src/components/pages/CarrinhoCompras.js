@@ -16,20 +16,25 @@ const CarrinhoCompras = () => {
       <div className="container">
         <div className='content'>
           <h1 className='titulo-carrinho'>CARRINHO</h1>
-          <div className='div-titulo'>
-            <h1 className='div-titulo-h1'>Items</h1>
-            <h1 className='div-titulo-h2'>Valor</h1>
-            <h1>Quantidade</h1>
-            <h1>Total</h1>
-          </div>
           {cartItems.length === 0 ? (
-            <p>O carrinho está vazio</p>
+            <div className='imagem-carrinho-vazio'>
+              <img className='imagem-carrinho-vazio1'src="/imagens/carrinho.png" alt="Lixeira" />
+            </div>
           ) : (
             <div className='div-geral-carrinho'>
+              <div className='div-titulo'>
+                <h1 className='div-titulo-h1'>Item</h1>
+                <h1 className='div-titulo-3'>Descriçao</h1>
+                <h1 className='div-titulo-h2'>Valor</h1>
+                <h1 className='div-Quantidade'>Quantidade</h1>
+                <h1>Total</h1>
+              </div>
               {cartItems.map(item => (
                 <div className='div-carrinho' key={item.id}>
                   <div className='imagem-produto-carrinho2'>
                     <img className='imagem-produto-carrinho' src={item.image} alt={item.name} />
+                  </div>
+                  <div className='item-div-nome'>
                     <h2 className='item-nome'>{item.name}</h2>
                   </div>
                   <div className='div-item-preço'>

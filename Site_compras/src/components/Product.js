@@ -20,7 +20,7 @@ const Product = ({ product }) => {
       <h2>{product.name}</h2>
       <img src={product.image} alt={product.name} className="product-image" />
       <p className='oldprice'>{product.oldprice}</p>
-      <p>{product.price}</p>
+      <p>{product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
       <div className={`product-description ${isExpanded ? 'expanded' : ''}`}>
         <p>{product.description}</p>
         {/* Botão de expandir */}
