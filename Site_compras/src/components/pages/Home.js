@@ -8,6 +8,7 @@ import Footer from '../Footer';
 
 
 
+
 function Home() {
   
 
@@ -17,7 +18,8 @@ function Home() {
       <ProductList/>
       <AboutUs/>
       <InfoSection/>
-      <Footer/>     
+      <Footer/> 
+         
     </div>
   );
 }

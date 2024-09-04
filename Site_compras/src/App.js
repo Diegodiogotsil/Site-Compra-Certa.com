@@ -7,20 +7,16 @@ import { TemaContext } from './TemaContext';
 import './App.css';
 
 function App() {
-  const { tema, toggleTema } = useContext(TemaContext);
+  const { tema } = useContext(TemaContext);
 
   return (
     <div className={`App ${tema === "escuro" ? "Tema-escuro" : ""}`}>
-      <BrowserRouter>
-      {/* Coloque esses elementos fora de <Routes> */}
-      <div>O tema atual é {tema}</div>
-        <button onClick={toggleTema}>Mudar Tema</button>
+      <BrowserRouter>      
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/produto" element={<Produto />} />
-          <Route path="/carrinho-compras" element={<CarrinhoCompras />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/produto" element={<Produto/>} />
+          <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
         </Routes>
-        
       </BrowserRouter>
     </div>
   );

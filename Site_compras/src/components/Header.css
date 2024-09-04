@@ -20,11 +20,17 @@
   height: auto;  /* Mantém a proporção da imagem */
   margin-right: 10px;  /* Espaçamento entre a imagem e o texto */
 }
+.div-search-bar{
+  width: 70%;
+  padding-right: rem;
 
+}
 .search-bar {
   display: flex;
   flex-grow: 1;
   margin: 0 20px;
+  
+  
 }
 
 .search-bar input {
