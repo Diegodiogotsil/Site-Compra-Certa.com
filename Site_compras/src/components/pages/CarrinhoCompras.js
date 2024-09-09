@@ -4,6 +4,7 @@ import './CarrinhoCompras.css';
 import { useCart } from '../../context/CartContext'; // Certifique-se de que o caminho está correto
 import Footer from '../Footer';
 
+
 const CarrinhoCompras = () => {
   const { cartItems, removeFromCart, incrementQuantity, decrementQuantity, cartCount } = useCart();
 

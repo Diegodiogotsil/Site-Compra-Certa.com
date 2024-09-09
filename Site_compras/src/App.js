@@ -5,6 +5,7 @@ import Produto from './components/pages/Produto';
 import CarrinhoCompras from './components/pages/CarrinhoCompras';
 import { TemaContext } from './TemaContext';
 import './App.css';
+import Cadastro from './components/pages/Cadastro';
 
 function App() {
   const { tema } = useContext(TemaContext);
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/produto" element={<Produto/>} />
           <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
+          <Route path="/cadastro" element={<Cadastro/>} />
         </Routes>
       </BrowserRouter>
     </div>

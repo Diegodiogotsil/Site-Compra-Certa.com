@@ -102,13 +102,13 @@ const ProductList = () => {
 
   const scrollLeft = () => {
     if (listRef.current) {
-      listRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+      listRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (listRef.current) {
-      listRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      listRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
 

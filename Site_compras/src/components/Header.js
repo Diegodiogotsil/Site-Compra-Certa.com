@@ -33,8 +33,7 @@ const Header = () => {
         </div>
         <div className="cart-icon" onClick={handleCartClick}>
           <FaShoppingCart size={28} />
-          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-          
+          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}         
         </div>
       </header>
       <ImageCarousel />

@@ -82,7 +82,7 @@
 
 /* Cor de fundo do botão ao passar o mouse */
 .add-to-cart-button:hover {
-  background-color: #ccd2cc; /* Cor de fundo ao passar o mouse */
+  background-color: #70c7df; /* Cor de fundo ao passar o mouse */
 }
 .oldprice{
   text-decoration: line-through;
