@@ -2,6 +2,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   padding: 10px 20px;
   background-color: #ff0000;
@@ -62,6 +63,7 @@
   border-radius: 50%;
   padding: 2px 6px;
   font-size: 12px;
+  
 }
 
 .Tema-escuro .cart-count {
@@ -78,3 +80,62 @@
   background-color: #d33157;
   color: #fff;
 }
+
+.botão-de-login {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(46, 114, 238);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 40px; /* Ajuste para mover o tooltip para cima */
+  left: 50%; /* Centraliza o tooltip */
+  transform: translateX(-50%);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip-text2 {
+ 
+  visibility: hidden;
+  width: 90px;
+  background-color: rgb(46, 114, 238);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 40px; /* Ajuste para mover o tooltip para cima */
+   /* Centraliza o tooltip */
+  transform: translateX(-50%);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip-container:hover .tooltip-text2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
