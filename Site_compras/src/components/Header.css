@@ -81,16 +81,19 @@
   color: #fff;
 }
 
-.botão-de-login {
+.botão-de-login  {
   display: flex;
   width: 2rem;
   height: 2rem;
   background-color: transparent;
+
 }
+
 
 .tooltip-container {
   position: relative;
   display: inline-block;
+  
 }
 
 .tooltip-text {
@@ -106,9 +109,10 @@
   top: 40px; /* Ajuste para mover o tooltip para cima */
   left: 50%; /* Centraliza o tooltip */
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0;
   transition: opacity 0.3s;
+  
 }
 .tooltip-text2 {
  

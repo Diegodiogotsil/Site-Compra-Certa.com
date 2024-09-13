@@ -6,7 +6,9 @@ import ImageCarousel from './ImageCarousel';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext'; // Importe o hook do contexto
 import Botaotema from './BotaoTema';
-import login from '../img/login.png'
+import login from '../img/login.png';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const { cartCount } = useCart(); // Acesse a contagem do carrinho
@@ -34,9 +36,11 @@ const Header = () => {
           <span className="tooltip-text">Tema</span> {/* Tooltip customizado */}
         </div>
         <div className="tooltip-container">
-          <button>
+          <Link to="/cadastro">
+          <button className="cart-icon">
             <img className='botão-de-login' src={login} alt="Login" />
           </button>
+          </Link>
           <span className="tooltip-text">Entrar</span> {/* Tooltip customizado */}
         </div>
         <div className="tooltip-container">
