@@ -1,69 +1,65 @@
 import './Cadastro.css';
 import api from '../../servicos/Api';
-import lixeira from '../../img/lixeira2.png';
-import { useEffect, useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function Cadastro() {
-    const[users, setUsers] = useState ([])
 
-    const inputName = useRef()
-    const inputAge = useRef()
-    const inputEmail = useRef()
+    const inputName = useRef();
+    const inputAge = useRef();
+    const inputEmail = useRef();
+    const [errorMessage, setErrorMessage] = useState('');
 
-    async function getUsers(){
-        const usersFromApi = await api.get ('/usuarios')
+    async function createUsers() {
+        // Validação dos campos
+        const name = inputName.current.value.trim();
+        const age = inputAge.current.value.trim();
+        const email = inputEmail.current.value.trim();
 
-        setUsers(usersFromApi.data)
+        if (!name || !age || !email) {
+            setErrorMessage('Todos os campos são obrigatórios.');
+            return;  // Interrompe o envio se faltar dados
+        }
+
+        // Se os campos estiverem preenchidos, limpa a mensagem de erro
+        setErrorMessage('');
+
+        try {
+            // Verifica se o usuário já está cadastrado pelo email
+            const response = await api.get(`/usuarios?email=${email}`);
+
+            if (response.data.length > 0) {
+                setErrorMessage('Usuário já cadastrado.');
+                return;  // Interrompe o cadastro se o email já existir
+            }
+
+            // Se não existir, realiza o cadastro
+            await api.post('/usuarios', {
+                name: inputName.current.value,
+                age: inputAge.current.value,
+                email: inputEmail.current.value
+            });
+
+            alert('Usuário cadastrado com sucesso!');
+        } catch (error) {
+            setErrorMessage('Erro ao cadastrar usuário.');
+        }
     }
-    async function createUsers(){
-        
-        await api.post ('/usuarios', {
-            name: inputName.current.value,
-            age: inputAge.current.value,
-            email: inputEmail.current.value
-        })
 
-        getUsers()
-      
-    }
-
-    async function deleteUsers(id){
-        
-        await api.delete (`/usuarios/${id}`)
-
-        getUsers()
-      
-    }
-
-    useEffect (() =>{
-        getUsers()
-    }, [])
     return (
         <div className='container-cadastro'>
             <form className='form-cadastro'>
-                <h1>Cadastro de Usuarios</h1>
+                <h1>Cadastro de Usuários</h1>
                 <input placeholder='Nome' name='nome' type='text' ref={inputName} />
-                <input placeholder='Idade' name='idade' type='number' ref={inputAge}/>
+                <input placeholder='Idade' name='idade' type='number' ref={inputAge} />
                 <input placeholder='E-mail' name='e-mail' type='email' ref={inputEmail} />
+
+                {/* Exibir mensagem de erro se os campos não forem preenchidos ou se o usuário já existir */}
+                {errorMessage && <p className='error-message'>{errorMessage}</p>}
+
                 <button type='button' onClick={createUsers}>Cadastrar</button>
             </form>
-
-            {users.map(user => (
-                <div key={user.id} className='card-cadastro'>
-                    <div>
-                        <p>Nome: <span>{user.name}</span></p>
-                        <p>Idade: <span>{user.age}</span></p>
-                        <p>E-Mail: <span>{user.email}</span></p>
-                    </div>                   
-                    <button onClick={() => deleteUsers(user.id)}>
-                        <img src={lixeira} />
-                    </button>
-                </div>
-            ))}
-
         </div>
     )
 }
 
-
-export default Cadastro
+export default Cadastro;

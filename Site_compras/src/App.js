@@ -6,6 +6,7 @@ import CarrinhoCompras from './components/pages/CarrinhoCompras';
 import { TemaContext } from './TemaContext';
 import './App.css';
 import Cadastro from './components/pages/Cadastro';
+import LoginADM from './components/pages/LoginADM';
 
 function App() {
   const { tema } = useContext(TemaContext);
@@ -18,6 +19,7 @@ function App() {
           <Route path="/produto" element={<Produto/>} />
           <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
           <Route path="/cadastro" element={<Cadastro/>} />
+          <Route path="/login-adm" element={<LoginADM/>} />
         </Routes>
       </BrowserRouter>
     </div>

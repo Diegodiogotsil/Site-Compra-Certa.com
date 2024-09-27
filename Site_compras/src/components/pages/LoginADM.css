@@ -1,0 +1,58 @@
+.div-loginAdm {
+    background-image: url("../../img/imagemTelaadmLogado.jpg");
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+
+.card-cadastro{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(27, 28, 28, 0.3);
+    margin: 10px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+
+    & p {
+        color: #fff;
+        font-weight: bold;
+
+        & span {
+            font-weight: normal;
+        }
+
+    }
+
+    & button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    & img {
+        width: 3rem; /* Definindo o tamanho da imagem */
+        height: 3.5rem; /* Definindo o tamanho da imagem */
+        background-color: transparent;
+        border-radius: 10px;
+        
+    }
+
+    & button:hover {
+        opacity: 0.5;
+    }
+}
+
+
+.div-loginAdm{
+    border-color: #2e2d4e;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    
+    
+
+}
