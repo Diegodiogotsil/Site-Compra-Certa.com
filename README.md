@@ -1,2 +1,2 @@
-# Site-de-compras
+# Site Compra Certa.com
 Criação do site Compra Certa.com
