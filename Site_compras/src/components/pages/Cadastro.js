@@ -42,7 +42,8 @@ function Cadastro() {
                 password: inputPassword.current.value
             });
 
-            
+            alert('Usuário cadastrado com sucesso!');
+            window.location.href = '/login-users';
 
             
 

@@ -1,6 +1,7 @@
 import './Cadastro.css';
 import api from '../../servicos/Api';
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
     const inputEmail = useRef();
@@ -50,6 +51,17 @@ function Login() {
                 {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
                 <button type='button' onClick={loginUsers}>Entrar</button>
+                <div>
+                    <Link to="/cadastro">
+                        <p className='link-cadastre-se'>Cadastre-se e saiba mais</p>
+                    </Link>
+                    <Link to="/forgot-password">
+                        <p className='link-cadastre-se'>Esqueci minha senha</p>
+                    </Link>
+                    <Link to="/cadastro">
+                        <p className='link-cadastre-se'>Login do administrador</p>
+                    </Link>
+                </div>
             </form>
         </div>
     )

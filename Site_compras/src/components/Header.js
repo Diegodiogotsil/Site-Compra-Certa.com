@@ -36,7 +36,7 @@ const Header = () => {
           <span className="tooltip-text">Tema</span> {/* Tooltip customizado */}
         </div>
         <div className="tooltip-container">
-          <Link to="/cadastro">
+          <Link to="/login-users">
           <button className="cart-icon">
             <img className='botão-de-login' src={login} alt="Login" />
           </button>

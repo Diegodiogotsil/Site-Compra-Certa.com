@@ -63,7 +63,24 @@
     input::placeholder {
         color:rgb(223, 221, 237)
     }
+
 }
+
+.form-cadastro a {
+    text-decoration: none;  /* parte para estilizar o link dentro do cadastro*/
+    color: antiquewhite;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+
+.link-cadastre-se:hover {
+    color: rgb(81, 215, 246);
+    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+    text-decoration-color: rgb(81, 215, 246); /* Sublinhado na mesma cor do texto */
+}
+
 
 .error-message{
     color: rgb(212, 241, 21);
