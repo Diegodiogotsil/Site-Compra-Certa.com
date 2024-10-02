@@ -11,8 +11,6 @@ function ResetPassword() {
   const handleReset = async (e) => {
     e.preventDefault();
 
-    // Limpar mensagem anterior
-    setMessage('');
 
     // Verificar se as senhas coincidem
     if (password !== confirmPassword) {
@@ -37,8 +35,9 @@ function ResetPassword() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleReset}>
+    <div className='container-cadastro'>     
+      <form className='form-cadastro' onSubmit={handleReset}>
+      <h1>Redefinir senha</h1>
         <input
           type="password"
           placeholder="Nova Senha"
@@ -52,10 +51,11 @@ function ResetPassword() {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button type="submit">Redefinir Senha</button>
+        {/* Exibir mensagem de erro ou sucesso */}
+        {message && <p className='error-message'>{message}</p>}
       </form>
 
-      {/* Exibir mensagem de erro ou sucesso */}
-      {message && <p>{message}</p>}
+
     </div>
   );
 }
