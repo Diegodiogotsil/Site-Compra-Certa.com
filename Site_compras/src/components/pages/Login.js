@@ -36,7 +36,7 @@ function Login() {
             if (error.response && error.response.data.message) {
                 setErrorMessage(error.response.data.message);
             } else {
-                setErrorMessage('Erro ao logar usuário. Verifique suas credenciais.');
+                setErrorMessage('Erro ao logar usuário. Tente novamente mais tarde.');
             }
         }
     }
@@ -55,10 +55,10 @@ function Login() {
                     <Link to="/cadastro">
                         <p className='link-cadastre-se'>Cadastre-se e saiba mais</p>
                     </Link>
-                    <Link to="/forgot-password">
+                    <Link to="/esqueci-minha-senha">
                         <p className='link-cadastre-se'>Esqueci minha senha</p>
                     </Link>
-                    <Link to="/cadastro">
+                    <Link to="/esqueci-minha-senha">
                         <p className='link-cadastre-se'>Login do administrador</p>
                     </Link>
                 </div>

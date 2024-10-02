@@ -17,7 +17,7 @@ function ForgotPassword() {
         setMessage('E-mail de recuperação enviado! Verifique sua caixa de entrada.');
       
         // Redirecionar para a página de redefinição de senha
-        navigate('/reset-password');
+        
       } catch (error) {
         // Verificar se o erro contém uma resposta do servidor
         if (error.response && error.response.data && error.response.data.message) {

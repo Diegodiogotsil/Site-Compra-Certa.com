@@ -23,7 +23,7 @@ function App() {
           <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
           <Route path="/cadastro" element={<Cadastro/>} />
           <Route path="/login-adm" element={<LoginADM/>} />
-          <Route path="/reset-password" element={<ResetPassword/>} />
+          <Route path="/reset-senha/:token" element={<ResetPassword/>} />
           <Route path="/esqueci-minha-senha" element={<ForgotPassword/>} />
           <Route path="/login-users" element={<Login/>} />
         </Routes>
