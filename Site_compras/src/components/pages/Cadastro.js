@@ -68,7 +68,6 @@ function Cadastro() {
 
                 {/* Exibir mensagem de erro se os campos não forem preenchidos ou se o usuário já existir */}
                 {errorMessage && <p className='error-message'>{errorMessage}</p>}
-
                 <button type='button' onClick={createUsers}>Cadastrar</button>
             </form>
         </div>

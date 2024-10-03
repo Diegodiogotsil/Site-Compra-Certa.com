@@ -1,57 +1,59 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import api from '../../servicos/Api';
-import { useNavigate } from 'react-router-dom'; // Para redirecionar após o envio do e-mail
 import './Cadastro.css';
 
-
 function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Hook para redirecionar
-  
+  const [message, setMessage] = useState('');  // Mensagem de sucesso ou erro ao enviar o e-mail
+  const [errormessage, setErrorMessage] = useState('');
+  const inputEmail = useRef();
 
-  const handleForgotPassword = async (e) => {
-    e.preventDefault();
+  async function ResetEmail() {
 
-    
+    const email = inputEmail.current.value.trim();
+
+    if (!email) {
+      setErrorMessage('Todos os campos são obrigatórios.');
+      return;  // Interrompe o envio se faltar dados
+    }
+
+    // Verificar se o input é válido antes de prosseguir
+    if (!email) {
+      setErrorMessage('Todos os campos são obrigatórios.');
+      return;  // Interrompe o envio se faltar dados
+    }
+    setErrorMessage('');
 
     try {
-      const response = await api.post('/forgot-password', { email });
+      // Fazer requisição à API
+      await api.post('/forgot-password', { email });
 
-      // Se o envio do e-mail for bem-sucedido, defina a mensagem de sucesso
+      // Se o envio do e-mail for bem-sucedido, definir a mensagem de sucesso
       setMessage('E-mail de recuperação enviado! Verifique sua caixa de entrada.');
-
-      // Redirecionar para a página de login após 5 segundos
-      setTimeout(() => {
-        navigate('/login-users');
-      }, 5000); // Redireciona após 5 segundos
-
+      
 
     } catch (error) {
-      // Verificar se o erro contém uma resposta do servidor
+      // Captura a mensagem de erro específica do backend
       if (error.response && error.response.data && error.response.data.message) {
-        setMessage(error.response.data.message);
+        setErrorMessage(error.response.data.message); // Mensagem específica do backend
       } else {
-        // Caso contrário, exibir uma mensagem genérica
-        setMessage('Erro ao enviar o e-mail de recuperação. Verifique se o e-mail está correto.');
+        setErrorMessage('Erro ao cadastrar usuário.');
       }
     }
-  }
+  };
 
   return (
     <div className='container-cadastro'>
-
-      <form className='form-cadastro' onSubmit={handleForgotPassword}>
+      <form className='form-cadastro'>
         <h1>Esqueci a Senha</h1>
         <input
-          type="email"
-          placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+          placeholder='E-mail'
+          name='e-mail'
+          type='email'
+          ref={inputEmail}
         />
-        <button type="submit">Enviar E-mail</button>
-        {message && <p className='error-message'>{message}</p>}
+        <button type='button' onClick={ResetEmail}>Enviar</button>
+        {message && <p className='message'>{message}</p>}  {/* Exibir mensagem de sucesso */}
+        {errormessage && <p className='error-message'>{errormessage}</p>}
       </form>
     </div>
   );
