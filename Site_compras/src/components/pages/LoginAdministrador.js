@@ -1,14 +1,13 @@
 import './Cadastro.css';
 import api from '../../servicos/Api';
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 
-function Login() {
+function LoginAdministrador() {
     const inputEmail = useRef();
     const inputPassword = useRef();
     const [errorMessage, setErrorMessage] = useState('');
 
-    async function loginUsers() {
+    async function loginADM() {
         // Validação dos campos
         const email = inputEmail.current.value.trim();
         const password = inputPassword.current.value.trim();
@@ -23,21 +22,20 @@ function Login() {
 
         try {
             // Enviar o email e senha para a rota de login
-            await api.post('/login', {
+            await api.post('/loginADM', {
                 email: email,
                 password: password
             });
 
             // Se o login for bem-sucedido, redireciona o usuário
-            alert('Usuário logado com sucesso!');
-            window.location.href = '/'; // Exemplo de redirecionamento para outra página
-            
+            alert('Login de administrador bem-sucedido!');
+            window.location.href = '/login-adm'; // Exemplo de redirecionamento para outra página
         } catch (error) {
             // Mostrar mensagem de erro detalhada
             if (error.response && error.response.data.message) {
                 setErrorMessage(error.response.data.message);
             } else {
-                setErrorMessage('Erro ao logar usuário. Tente novamente mais tarde.');
+                setErrorMessage('Sistema indisponivel. Tente novamente mais tarde.');
             }
         }
     }
@@ -45,27 +43,17 @@ function Login() {
     return (
         <div className='container-cadastro'>
             <form className='form-cadastro'>
-                <h1>Bem vindo (a) !</h1>
+                <h1>Login do ADM (a) !</h1>
                 <input placeholder='E-mail' name='e-mail' type='email' ref={inputEmail} />
                 <input placeholder='Senha' name='senha' type='password' ref={inputPassword} />
                 {/* Exibir mensagem de erro se os campos não forem preenchidos ou se o usuário já existir */}
                 {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
-                <button type='button' onClick={loginUsers}>Entrar</button>
-                <div>
-                    <Link to="/cadastro">
-                        <p className='link-cadastre-se'>Cadastre-se e saiba mais</p>
-                    </Link>
-                    <Link to="/esqueci-minha-senha">
-                        <p className='link-cadastre-se'>Esqueci minha senha</p>
-                    </Link>
-                    <Link to="/Login-Administrador">
-                        <p className='link-cadastre-se'>Login do administrador</p>
-                    </Link>
-                </div>
+                <button type='button' onClick={loginADM}>Conectar</button>
+                
             </form>
         </div>
     )
 }
 
-export default Login;
+export default LoginAdministrador;

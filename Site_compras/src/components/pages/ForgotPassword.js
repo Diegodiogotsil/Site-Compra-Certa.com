@@ -11,11 +11,6 @@ function ForgotPassword() {
 
     const email = inputEmail.current.value.trim();
 
-    if (!email) {
-      setErrorMessage('Todos os campos são obrigatórios.');
-      return;  // Interrompe o envio se faltar dados
-    }
-
     // Verificar se o input é válido antes de prosseguir
     if (!email) {
       setErrorMessage('Todos os campos são obrigatórios.');
@@ -29,14 +24,17 @@ function ForgotPassword() {
 
       // Se o envio do e-mail for bem-sucedido, definir a mensagem de sucesso
       setMessage('E-mail de recuperação enviado! Verifique sua caixa de entrada.');
+      setErrorMessage('');
       
 
     } catch (error) {
       // Captura a mensagem de erro específica do backend
       if (error.response && error.response.data && error.response.data.message) {
         setErrorMessage(error.response.data.message); // Mensagem específica do backend
+        setMessage('');
       } else {
         setErrorMessage('Erro ao cadastrar usuário.');
+        setMessage('');
       }
     }
   };

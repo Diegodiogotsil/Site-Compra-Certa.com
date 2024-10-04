@@ -10,6 +10,7 @@ import LoginADM from './components/pages/LoginADM';
 import ResetPassword from './components/pages/ResetPassword';
 import Login from './components/pages/Login';
 import ForgotPassword from './components/pages/ForgotPassword';
+import LoginAdministrador from './components/pages/LoginAdministrador';
 
 function App() {
   const { tema } = useContext(TemaContext);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
           <Route path="/cadastro" element={<Cadastro/>} />
           <Route path="/login-adm" element={<LoginADM/>} />
+          <Route path="/Login-Administrador" element={<LoginAdministrador/>} />
           <Route path="/reset-senha/:token" element={<ResetPassword/>} />
           <Route path="/esqueci-minha-senha" element={<ForgotPassword/>} />
           <Route path="/login-users" element={<Login/>} />
