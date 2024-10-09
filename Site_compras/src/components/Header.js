@@ -1,21 +1,39 @@
-// src/components/Header.js
 import React from 'react';
 import './Header.css';
 import { FaShoppingCart } from 'react-icons/fa';
 import ImageCarousel from './ImageCarousel';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // Importe o hook do contexto
 import Botaotema from './BotaoTema';
 import login from '../img/login.png';
-import { Link } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+import UserActionTypes from '../redux/user/action-types';
 
 const Header = () => {
-  const { cartCount } = useCart(); // Acesse a contagem do carrinho
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Acessar o usuário atual
+  const { currentUser } = useSelector((state) => state.userReducer);
+
+  // Acessar os itens do carrinho
+  const cartItems = useSelector((state) => state.cartReducer.produtos);
+
+  // Calcular a quantidade total de itens no carrinho
+  const cartCount = cartItems.reduce((accum, item) => accum + item.quantity, 0);
 
   const handleCartClick = () => {
     navigate('/carrinho-compras');
+  };
+
+  const HandleLoginClick = () => {
+    navigate('/login-users');
+  };
+
+  const HandleLogoutClick = () => {
+    dispatch({
+      type: UserActionTypes.LOGOUT,
+    });
   };
 
   return (
@@ -33,20 +51,31 @@ const Header = () => {
         </div>
         <div className="tooltip-container">
           <Botaotema />
-          <span className="tooltip-text">Tema</span> {/* Tooltip customizado */}
+          <span className="tooltip-text">Tema</span>
         </div>
-        <div className="tooltip-container">
-          <Link to="/login-users">
-          <button className="cart-icon">
-            <img className='botão-de-login' src={login} alt="Login" />
-          </button>
-          </Link>
-          <span className="tooltip-text">Entrar</span> {/* Tooltip customizado */}
-        </div>
+
+        {currentUser ? (
+          <div className="tooltip-container" onClick={HandleLogoutClick}>
+            <button className="cart-icon">
+              <img className='botão-de-login' src={login} alt="Login" />
+            </button>
+            <span className="tooltip-text">Sair</span>
+          </div>
+        ) : (
+          <div className="tooltip-container" onClick={HandleLoginClick}>
+            <button className="cart-icon">
+              <img className='botão-de-login' src={login} alt="Login" />
+            </button>
+            <span className="tooltip-text">Entrar</span>
+          </div>
+        )}
+
         <div className="tooltip-container">
           <div className="cart-icon" onClick={handleCartClick}>
             <FaShoppingCart size={28} />
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+            {cartCount > 0 && (
+              <span className="cart-count">{cartCount}</span> // Adiciona o contador
+            )}
           </div>
           <span className="tooltip-text2">Carrinho</span>
         </div>

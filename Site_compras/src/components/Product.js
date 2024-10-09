@@ -1,19 +1,23 @@
 // src/components/Product.js
 import React, { useState } from 'react';
 import './Product.css';
-import { useCart } from '../context/CartContext'; 
+import { useDispatch } from 'react-redux';
+import { addprodutoaoCarrinho } from '../redux/cart/actions';
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch()
+
+  const handleProductClick = () => {
+    dispatch(addprodutoaoCarrinho(product))
+  }
+
   const [isExpanded, setIsExpanded] = useState(false);
-  const { addToCart } = useCart(); // Acesse a função para adicionar ao carrinho
 
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleAddToCartClick = () => {
-    addToCart(product); // Adiciona o produto ao carrinho
-  };
+ 
 
   return (
     <div className="product">
@@ -28,9 +32,9 @@ const Product = ({ product }) => {
           {isExpanded ? 'Ver menos' : 'Ver mais'}
         </div>
       </div>
-      <button className="add-to-cart-button" onClick={handleAddToCartClick}>
+      <button className="add-to-cart-button" onClick={handleProductClick}>
         Adicionar ao Carrinho
-      </button>
+      </button>     
     </div>
   );
 };

@@ -1,16 +1,18 @@
-// src/components/CarrinhoCompras.js
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, incrementQuantity, decrementQuantity } from '../../redux/cart/actions';
 import './CarrinhoCompras.css';
-import { useCart } from '../../context/CartContext'; // Certifique-se de que o caminho está correto
 import Footer from '../Footer';
 
-
 const CarrinhoCompras = () => {
-  const { cartItems, removeFromCart, incrementQuantity, decrementQuantity, cartCount } = useCart();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cartReducer.produtos);
 
   const calcularTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <main>
@@ -19,7 +21,7 @@ const CarrinhoCompras = () => {
           <h1 className='titulo-carrinho'>CARRINHO</h1>
           {cartItems.length === 0 ? (
             <div className='imagem-carrinho-vazio'>
-              <img className='imagem-carrinho-vazio1'src="/imagens/carrinho.png" alt="Lixeira" />
+              <img className='imagem-carrinho-vazio1'src="/imagens/carrinho.png" alt="Carrinho vazio" />
             </div>
           ) : (
             <div className='div-geral-carrinho'>
@@ -44,19 +46,18 @@ const CarrinhoCompras = () => {
                   </div>
                   <div className='div-quantidade'>
                     <div className='div-botao-mn'>
-                      <button className='botao-decrementar' onClick={() => decrementQuantity(item.id)}>-</button>
+                      <button className='botao-decrementar' onClick={() => dispatch(decrementQuantity(item.id))}>-</button>
                       <span className='quantidade'>{item.quantity}</span>
-                      <button className='botao-incrementar' onClick={() => incrementQuantity(item.id)}>+</button>
+                      <button className='botao-incrementar' onClick={() => dispatch(incrementQuantity(item.id))}>+</button>
                     </div>
                     <div>
-                      <button className='botao-remover' onClick={() => removeFromCart(item.id)}>Remover</button>
+                      <button className='botao-remover' onClick={() => dispatch(removeFromCart(item.id))}>Remover</button>
                     </div>
                   </div>
                   <div className='div-item-total'>
                     <h1>Total:</h1>
                     <h1>{(item.price * item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h1>
                   </div>
-
                 </div>
               ))}
               <div className='div-total-geral'>

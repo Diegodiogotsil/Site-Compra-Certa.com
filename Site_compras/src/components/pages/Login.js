@@ -1,12 +1,16 @@
 import './Cadastro.css';
 import api from '../../servicos/Api';
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux'; // Import Redux Dispatch
+import UserActionTypes from '../../redux/user/action-types'; // Import ActionTypes
 
 function Login() {
     const inputEmail = useRef();
     const inputPassword = useRef();
     const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch(); // Redux dispatch
+    const navigate = useNavigate();
 
     async function loginUsers() {
         // Validação dos campos
@@ -15,25 +19,35 @@ function Login() {
 
         if (!email || !password) {
             setErrorMessage('Todos os campos são obrigatórios.');
-            return;  // Interrompe o envio se faltar dados
+            return;
         }
 
-        // Se os campos estiverem preenchidos, limpa a mensagem de erro
         setErrorMessage('');
 
         try {
             // Enviar o email e senha para a rota de login
-            await api.post('/login', {
-                email: email,
-                password: password
+            const response = await api.post('/login', { email, password });
+            console.log(response.data);
+
+            // Se o login for bem-sucedido, pegue os dados do usuário
+            const userData = response.data.user; // Supondo que a API retorna os dados do usuário
+
+            // Disparar a ação para o Redux com os dados do usuário
+            dispatch({
+                type: UserActionTypes.LOGIN,
+                payload: {
+                    name: userData.name,
+                    email: userData.email,
+                    age: userData.age,
+                    // Outros dados relevantes, como foto, etc.
+                },
             });
 
-            // Se o login for bem-sucedido, redireciona o usuário
+            // Redirecionar o usuário para a página inicial
             alert('Usuário logado com sucesso!');
-            window.location.href = '/'; // Exemplo de redirecionamento para outra página
-            
+            navigate('/'); 
+
         } catch (error) {
-            // Mostrar mensagem de erro detalhada
             if (error.response && error.response.data.message) {
                 setErrorMessage(error.response.data.message);
             } else {
@@ -48,7 +62,6 @@ function Login() {
                 <h1>Bem vindo (a) !</h1>
                 <input placeholder='E-mail' name='e-mail' type='email' ref={inputEmail} />
                 <input placeholder='Senha' name='senha' type='password' ref={inputPassword} />
-                {/* Exibir mensagem de erro se os campos não forem preenchidos ou se o usuário já existir */}
                 {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
                 <button type='button' onClick={loginUsers}>Entrar</button>
@@ -65,7 +78,7 @@ function Login() {
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
 export default Login;
