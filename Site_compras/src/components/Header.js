@@ -13,11 +13,11 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Acessar o usuário atual
-  const { currentUser } = useSelector((state) => state.userReducer);
+  // Acessar o usuário atual corretamente
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   // Acessar os itens do carrinho
-  const cartItems = useSelector((state) => state.cartReducer.produtos);
+  const cartItems = useSelector((state) => state.cart.produtos);
 
   // Calcular a quantidade total de itens no carrinho
   const cartCount = cartItems.reduce((accum, item) => accum + item.quantity, 0);
@@ -26,11 +26,11 @@ const Header = () => {
     navigate('/carrinho-compras');
   };
 
-  const HandleLoginClick = () => {
+  const handleLoginClick = () => {
     navigate('/login-users');
   };
 
-  const HandleLogoutClick = () => {
+  const handleLogoutClick = () => {
     dispatch({
       type: UserActionTypes.LOGOUT,
     });
@@ -49,20 +49,21 @@ const Header = () => {
             <button type="submit">Buscar</button>
           </div>
         </div>
+
         <div className="tooltip-container">
           <Botaotema />
           <span className="tooltip-text">Tema</span>
         </div>
 
         {currentUser ? (
-          <div className="tooltip-container" onClick={HandleLogoutClick}>
+          <div className="tooltip-container" onClick={handleLogoutClick}>
             <button className="cart-icon">
               <img className='botão-de-login' src={login} alt="Login" />
             </button>
             <span className="tooltip-text">Sair</span>
           </div>
         ) : (
-          <div className="tooltip-container" onClick={HandleLoginClick}>
+          <div className="tooltip-container" onClick={handleLoginClick}>
             <button className="cart-icon">
               <img className='botão-de-login' src={login} alt="Login" />
             </button>

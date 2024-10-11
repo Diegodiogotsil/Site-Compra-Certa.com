@@ -6,7 +6,7 @@ import Footer from '../Footer';
 
 const CarrinhoCompras = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cartReducer.produtos);
+  const cartItems = useSelector(state => state.cart.produtos);
 
   const calcularTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);

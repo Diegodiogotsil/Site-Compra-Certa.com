@@ -27,7 +27,7 @@ function Login() {
         try {
             // Enviar o email e senha para a rota de login
             const response = await api.post('/login', { email, password });
-            console.log(response.data);
+            
 
             // Se o login for bem-sucedido, pegue os dados do usuário
             const userData = response.data.user; // Supondo que a API retorna os dados do usuário
@@ -42,6 +42,7 @@ function Login() {
                     // Outros dados relevantes, como foto, etc.
                 },
             });
+            
 
             // Redirecionar o usuário para a página inicial
             alert('Usuário logado com sucesso!');

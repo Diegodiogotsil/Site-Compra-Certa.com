@@ -11,6 +11,7 @@ import ResetPassword from './components/pages/ResetPassword';
 import Login from './components/pages/Login';
 import ForgotPassword from './components/pages/ForgotPassword';
 import LoginAdministrador from './components/pages/LoginAdministrador';
+import Perfil from './components/pages/Perfil';
 
 function App() {
   const { tema } = useContext(TemaContext);
@@ -20,6 +21,7 @@ function App() {
       <BrowserRouter>      
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/perfil" element={<Perfil/>} />
           <Route path="/produto" element={<Produto/>} />
           <Route path="/carrinho-compras" element={<CarrinhoCompras/>} />
           <Route path="/cadastro" element={<Cadastro/>} />
