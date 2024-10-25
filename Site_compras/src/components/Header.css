@@ -12,18 +12,27 @@
 .logo {
   display: flex;  /* Adiciona flexbox para alinhar a imagem e o texto */
   align-items: center;  /* Centraliza verticalmente */
-  font-size: 24px;
   font-weight: bold;
+
+  & p {
+    font-size: 26px;
+  }
 }
 
 .logo-image {
-  width: 40px;  /* Define a largura da imagem */
+  width: 4rem;  /* Define a largura da imagem */
   height: auto;  /* Mantém a proporção da imagem */
   margin-right: 10px;  /* Espaçamento entre a imagem e o texto */
+  cursor: pointer;
 }
+
+.logo-image:hover {
+  opacity: 0.8; /* Reduz a opacidade para 80% ao passar o mouse */
+}
+
 .div-search-bar{
-  width: 70%;
-  padding-right: rem;
+  width: 40%;
+  
 
 }
 .search-bar {
@@ -37,6 +46,7 @@
 .search-bar input {
   flex-grow: 1;
   padding: 20px;
+  
 }
 
 .search-bar button {
@@ -54,6 +64,9 @@
   color: #ebf0f3;
 }
 
+.cart-icon:hover {
+  opacity: 0.8;
+}
 .cart-count {
   position: absolute;
   top: -10px;
@@ -110,9 +123,9 @@
   left: 50%; /* Centraliza o tooltip */
   transform: translateX(-50%);
   font-size: 14px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
-  
+  cursor:pointer;
 }
 .tooltip-text2 {
  
@@ -125,12 +138,12 @@
   padding: 5px;
   position: absolute;
   z-index: 1;
-  top: 40px; /* Ajuste para mover o tooltip para cima */
-   /* Centraliza o tooltip */
+  top: 60px; /* Ajuste para mover o tooltip para cima */
+  left: 50%;
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s;
 }
 
 .tooltip-container:hover .tooltip-text {
@@ -142,4 +155,46 @@
   opacity: 1;
 }
 
+.cabecalho-perfil {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+
+  & img {
+      width: 3rem;
+      height: 3rem;
+      border: aqua solid;
+      border-radius: 10rem;              
+  }
+  
+  & h1 {
+      display: flex;       
+      color: rgb(25, 11, 11);
+
+  }
+
+}
+
+.div-foto-nome {
+  display: flex;
+  cursor:pointer;
+
+  & h2 {
+      padding-left: 1rem;
+  }
+}
+
+.div-foto-nome:hover {
+  opacity: 0.8; /* Reduz a opacidade para 80% ao passar o mouse */
+}
+
+.div-principal-image-login{
+  display: flex;
+
+  & h2{
+    padding-left: 1rem;
+  }
+}
 

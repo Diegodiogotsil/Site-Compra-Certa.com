@@ -1,13 +1,13 @@
 import React from 'react';
 import './Header.css';
 import { FaShoppingCart } from 'react-icons/fa';
-import ImageCarousel from './ImageCarousel';
 import { useNavigate } from 'react-router-dom';
 import Botaotema from './BotaoTema';
-import login from '../img/login.png';
-
+import entrar from '../img/entrar.png';
+import sair from '../img/sair.png';
 import { useDispatch, useSelector } from 'react-redux';
 import UserActionTypes from '../redux/user/action-types';
+import BotaoPerfil from './BotaoPerfil';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -25,6 +25,9 @@ const Header = () => {
   const handleCartClick = () => {
     navigate('/carrinho-compras');
   };
+  const goHome = () => {
+    navigate('/');
+  };
 
   const handleLoginClick = () => {
     navigate('/login-users');
@@ -37,52 +40,52 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className="header">
-        <div className="logo">
+
+    <header className="header">
+      <div className="logo" onClick={goHome}>
+        <div className="tooltip-container">
           <img src={`${process.env.PUBLIC_URL}/imagens/logo2.jpg`} alt="Compra Certa Logo" className="logo-image" />
-          Compra Certa.com
+          <span className="tooltip-text2">Voltar para home</span>
         </div>
-        <div className="div-search-bar">
-          <div className="search-bar">
-            <input type="text" placeholder="Buscar produtos, marcas e muito mais..." />
-            <button type="submit">Buscar</button>
-          </div>
+        <p>Compra Certa.com</p>
+      </div>
+      <div className="div-search-bar">
+        <div className="search-bar">
+          <input type="text" placeholder="Buscar produtos, marcas e muito mais..." />
+          <button type="submit">Buscar</button>
         </div>
+      </div>
+      <div><BotaoPerfil /></div>
+      {currentUser ? (
+        <div className="tooltip-container" onClick={handleLogoutClick}>
+          <button className="cart-icon">
+            <img className='botão-de-login' src={sair} alt="Login" />
+          </button>
+          <span className="tooltip-text">Sair</span>
+        </div>
+      ) : (
+        <div className="tooltip-container" onClick={handleLoginClick}>
+          <button className="cart-icon">
+            <img className='botão-de-login' src={entrar} alt="Login" />
+          </button>
+          <span className="tooltip-text">Entrar</span>
+        </div>
+      )}
+      <div className="tooltip-container">
+        <div className="cart-icon" onClick={handleCartClick}>
+          <FaShoppingCart size={30} />
+          {cartCount > 0 && (
+            <span className="cart-count">{cartCount}</span> // Adiciona o contador
+          )}
+        </div>
+        <span className="tooltip-text">Carrinho</span>
+      </div>
+      <div className="tooltip-container">
+        <Botaotema />
+        <span className="tooltip-text">Tema</span>
+      </div>
+    </header>
 
-        <div className="tooltip-container">
-          <Botaotema />
-          <span className="tooltip-text">Tema</span>
-        </div>
-
-        {currentUser ? (
-          <div className="tooltip-container" onClick={handleLogoutClick}>
-            <button className="cart-icon">
-              <img className='botão-de-login' src={login} alt="Login" />
-            </button>
-            <span className="tooltip-text">Sair</span>
-          </div>
-        ) : (
-          <div className="tooltip-container" onClick={handleLoginClick}>
-            <button className="cart-icon">
-              <img className='botão-de-login' src={login} alt="Login" />
-            </button>
-            <span className="tooltip-text">Entrar</span>
-          </div>
-        )}
-
-        <div className="tooltip-container">
-          <div className="cart-icon" onClick={handleCartClick}>
-            <FaShoppingCart size={28} />
-            {cartCount > 0 && (
-              <span className="cart-count">{cartCount}</span> // Adiciona o contador
-            )}
-          </div>
-          <span className="tooltip-text2">Carrinho</span>
-        </div>
-      </header>
-      <ImageCarousel />
-    </>
   );
 };
 

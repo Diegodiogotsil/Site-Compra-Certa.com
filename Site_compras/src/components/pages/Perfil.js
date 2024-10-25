@@ -2,6 +2,7 @@ import React from 'react';
 import './Perfil.css';
 import chefinho from '../../img/chefinho.jpeg'; // Aqui você pode alterar para a foto do usuário mais tarde
 import { useSelector } from 'react-redux';
+import Header from '../Header';
 
 const Perfil = () => {
     // Acessando o usuário atual a partir do Redux
@@ -14,6 +15,7 @@ const Perfil = () => {
 
     return (
         <div className='pagina-perfil'>
+            <Header/>
             <div className='div-perfil'>
                 <div className='conteudo-perfil'>
                     <img src={chefinho} alt="Usuário"/>                                    

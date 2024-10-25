@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, incrementQuantity, decrementQuantity } from '../../redux/cart/actions';
-import './CarrinhoCompras.css';
 import Footer from '../Footer';
 import Header from '../Header';
 import { useNavigate } from 'react-router-dom';
 
-const CarrinhoCompras = () => {
+const Pagamentos = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.produtos);
   const UsuarioLogado = useSelector((state) => state.user.currentUser);
@@ -20,7 +19,7 @@ const CarrinhoCompras = () => {
       navigate('/login-users');
     } else {
       // Se estiver logado, vai direto para a página de pagamento
-      navigate('/pagamento');
+      navigate('/nota-fiscal');
     }
   };
 
@@ -35,7 +34,7 @@ const CarrinhoCompras = () => {
       <Header/>
       <div className="container">     
         <div className='content'>          
-          <h1 className='titulo-carrinho'>CARRINHO</h1>
+          <h1 className='titulo-carrinho'>PAGAMENTO</h1>
           {cartItems.length === 0 ? (
             <div className='imagem-carrinho-vazio'>
               <img className='imagem-carrinho-vazio1'src="/imagens/carrinho.png" alt="Carrinho vazio" />
@@ -81,7 +80,7 @@ const CarrinhoCompras = () => {
                 <h2>Total Geral: <span>{calcularTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span></h2>
                 <h2>Total de Itens: <span>{cartCount}</span></h2>
               </div>
-              <button type="button" onClick={Pagamento}>Continuar a compra</button>
+              <button type="button" onClick={Pagamento}>Concluir a compra</button>
             </div>
           )}
         </div>
@@ -91,4 +90,4 @@ const CarrinhoCompras = () => {
   );
 };
 
-export default CarrinhoCompras;
+export default Pagamentos;

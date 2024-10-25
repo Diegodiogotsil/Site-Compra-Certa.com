@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { TemaContext } from '../TemaContext';
-import '../App.css';
+import './BotaoTema.css';
 
 function Botaotema() {
   const { tema, toggleTema } = useContext(TemaContext);

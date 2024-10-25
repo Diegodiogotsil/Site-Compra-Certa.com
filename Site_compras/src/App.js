@@ -4,7 +4,6 @@ import Home from './components/pages/Home';
 import Produto from './components/pages/Produto';
 import CarrinhoCompras from './components/pages/CarrinhoCompras';
 import { TemaContext } from './TemaContext';
-import './App.css';
 import Cadastro from './components/pages/Cadastro';
 import LoginADM from './components/pages/LoginADM';
 import ResetPassword from './components/pages/ResetPassword';
@@ -12,6 +11,8 @@ import Login from './components/pages/Login';
 import ForgotPassword from './components/pages/ForgotPassword';
 import LoginAdministrador from './components/pages/LoginAdministrador';
 import Perfil from './components/pages/Perfil';
+import Pagamentos from './components/pages/Pagamentos';
+import NotaFiscal from './components/pages/NotaFiscal';
 
 function App() {
   const { tema } = useContext(TemaContext);
@@ -30,6 +31,8 @@ function App() {
           <Route path="/reset-senha/:token" element={<ResetPassword/>} />
           <Route path="/esqueci-minha-senha" element={<ForgotPassword/>} />
           <Route path="/login-users" element={<Login/>} />
+          <Route path="/pagamento" element={<Pagamentos/>} />
+          <Route path="/nota-fiscal" element={<NotaFiscal/>} />
         </Routes>
       </BrowserRouter>
     </div>

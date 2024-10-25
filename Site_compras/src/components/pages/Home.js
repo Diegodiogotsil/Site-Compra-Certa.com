@@ -4,7 +4,7 @@ import ProductList from '../ProductList';
 import AboutUs from '../AboutUs';
 import InfoSection from '../InfoSection';
 import Footer from '../Footer';
-import MenuSuperior from '../MenuSuperior';
+import ImageCarousel from '../ImageCarousel';
 
 
 
@@ -13,8 +13,8 @@ function Home() {
 
   return (
     <div className="Home">
-      <MenuSuperior/>
       <Header/>
+      <ImageCarousel/>
       <ProductList/>
       <AboutUs/>
       <InfoSection/>
